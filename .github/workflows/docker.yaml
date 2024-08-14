@@ -10,7 +10,7 @@ env:
   ALIYUN_REGISTRY: "${{ secrets.ALIYUN_REGISTRY }}"
   ALIYUN_NAME_SPACE: "${{ secrets.ALIYUN_NAME_SPACE }}"
   ALIYUN_REGISTRY_USER: "${{ secrets.ALIYUN_REGISTRY_USER }}"
-  ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}" 
+  ALIYUN_REGISTRY_PASSWORD: "${{ secrets.ALIYUN_REGISTRY_PASSWORD }}"
 
 jobs:
 
@@ -138,11 +138,11 @@ jobs:
             
             # 将@sha256:等字符删除
             image_name_tag="${image_name_tag%%@*}"
-            #new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
-            #echo "docker tag $image $new_image"
-            #docker tag $image $new_image
-            echo "docker push $image"
-            docker push $image
+            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE/$platform_prefix$name_space_prefix$image_name_tag"
+            echo "docker tag $image $new_image"
+            docker tag $image $new_image
+            echo "docker push $new_image"
+            docker push $new_image
             echo "开始清理磁盘空间"
             echo "=============================================================================="
             df -hT
