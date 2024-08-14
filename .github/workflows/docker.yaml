@@ -138,9 +138,9 @@ jobs:
             
             # 将@sha256:等字符删除
             image_name_tag="${image_name_tag%%@*}"
-            new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
-            echo "docker tag $image $new_image"
-            docker tag $image $new_image
+            #new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
+            #echo "docker tag $image $new_image"
+            #docker tag $image $new_image
             echo "docker push $new_image"
             docker push $new_image
             echo "开始清理磁盘空间"
