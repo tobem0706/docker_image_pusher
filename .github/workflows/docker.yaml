@@ -141,8 +141,8 @@ jobs:
             #new_image="$ALIYUN_REGISTRY/$ALIYUN_NAME_SPACE"
             #echo "docker tag $image $new_image"
             #docker tag $image $new_image
-            echo "docker push $new_image"
-            docker push $new_image
+            echo "docker push $image"
+            docker push $image
             echo "开始清理磁盘空间"
             echo "=============================================================================="
             df -hT
